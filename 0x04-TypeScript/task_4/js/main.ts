@@ -9,32 +9,31 @@ export const java = new Subjects.Java();
 export const react = new Subjects.React();
 
 export const cTeacher: Subjects.Teacher = {
-  firstName: 'John',
-  lastName: 'Doe',
+  firstName: "John",
+  lastName: "Doe",
   experienceTeachingC: 10,
 };
-["cTeacher: Teacher"]
+["cTeacher: Teacher"];
 // C++
-console.log('C++');
+console.log("C++");
 cpp.setTeacher(cTeacher);
 console.log(cpp.getRequirements());
 console.log(cpp.getAvailableTeacher());
-["const java = new Java()"]
+["const java = new Java()"];
 // Java
-console.log('Java');
+console.log("Java");
 java.setTeacher(cTeacher);
 console.log(java.getRequirements());
 console.log(java.getAvailableTeacher());
-["const java = new Java()"]
+["const cpp = new Cpp()"];
 // React
-console.log('React');
+console.log("React");
 react.setTeacher(cTeacher);
 console.log(react.getRequirements());
 console.log(react.getAvailableTeacher());
-// 
+//
 
-["const react = new React()"]
-
+["const react = new React()"];
 
 // ## Expected Output
 
