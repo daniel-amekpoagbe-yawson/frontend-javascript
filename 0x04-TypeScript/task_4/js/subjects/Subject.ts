@@ -7,4 +7,4 @@ namespace Subjects {
     }
   }
 }
-["setTeacher(teacher:Teacher)"]
+["setTeacher(teacher:Teacher)"];
