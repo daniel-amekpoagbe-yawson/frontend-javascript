@@ -1,3 +1,6 @@
+// ===============================
+// Interfaces for Employees
+// ===============================
 interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
@@ -10,51 +13,60 @@ interface TeacherInterface {
   workTeacherTasks(): string;
 }
 
+// ===============================
+// Classes implementing interfaces
+// ===============================
 class Director implements DirectorInterface {
   workFromHome(): string {
-    return 'Working from home';
+    return "Working from home";
   }
 
   getCoffeeBreak(): string {
-    return 'Getting a coffee break';
+    return "Getting a coffee break";
   }
 
   workDirectorTasks(): string {
-    return 'Getting to director tasks';
+    return "Getting to director tasks";
   }
 }
 
 class Teacher implements TeacherInterface {
   workFromHome(): string {
-    return 'Cannot work from home';
+    return "Cannot work from home";
   }
 
   getCoffeeBreak(): string {
-    return 'Cannot have a break';
+    return "Cannot have a break";
   }
 
   workTeacherTasks(): string {
-    return 'Getting to work';
+    return "Getting to work";
   }
 }
 
-// createEmployee function
+// ===============================
+// Function: createEmployee
+// Returns a Director or Teacher
+// ===============================
 function createEmployee(salary: number | string): Director | Teacher {
-  if (typeof salary === 'number') {
-    if (salary < 500) {
-      return new Teacher();
-    }
-    return new Director();
+  if (typeof salary === "number" && salary < 500) {
+    return new Teacher();
   }
   return new Director();
 }
 
-// ✅ isDirector type predicate
+// ===============================
+// Function: isDirector
+// Type predicate to check if employee is a Director
+// ===============================
 function isDirector(employee: Director | Teacher): employee is Director {
   return (employee as Director).workDirectorTasks !== undefined;
 }
 
-// ✅ executeWork function
+// ===============================
+// Function: executeWork
+// Calls the appropriate method based on employee type
+// ===============================
 function executeWork(employee: Director | Teacher): void {
   if (isDirector(employee)) {
     console.log(employee.workDirectorTasks());
@@ -63,6 +75,8 @@ function executeWork(employee: Director | Teacher): void {
   }
 }
 
-// ✅ Example tests
-executeWork(createEmployee(200));   // Getting to work
-executeWork(createEmployee(1000));  // Getting to director tasks
+// ===============================
+// Example usage (for testing)
+// ===============================
+executeWork(createEmployee(200)); // Output: Getting to work
+executeWork(createEmployee(1000)); // Output: Getting to director tasks
