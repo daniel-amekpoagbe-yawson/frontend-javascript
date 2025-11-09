@@ -18,38 +18,37 @@ interface TeacherInterface {
 // ===============================
 class Director implements DirectorInterface {
   workFromHome(): string {
-    return "Working from home";
+    return 'Working from home';
   }
 
   getCoffeeBreak(): string {
-    return "Getting a coffee break";
+    return 'Getting a coffee break';
   }
 
   workDirectorTasks(): string {
-    return "Getting to director tasks";
+    return 'Getting to director tasks';
   }
 }
 
 class Teacher implements TeacherInterface {
   workFromHome(): string {
-    return "Cannot work from home";
+    return 'Cannot work from home';
   }
 
   getCoffeeBreak(): string {
-    return "Cannot have a break";
+    return 'Cannot have a break';
   }
 
   workTeacherTasks(): string {
-    return "Getting to work";
+    return 'Getting to work';
   }
 }
 
 // ===============================
 // Function: createEmployee
-// Returns a Director or Teacher
 // ===============================
-function createEmployee(salary: number | string): Director | Teacher {
-  if (typeof salary === "number" && salary < 500) {
+export function createEmployee(salary: number | string): Director | Teacher {
+  if (typeof salary === 'number' && salary < 500) {
     return new Teacher();
   }
   return new Director();
@@ -57,26 +56,25 @@ function createEmployee(salary: number | string): Director | Teacher {
 
 // ===============================
 // Function: isDirector
-// Type predicate to check if employee is a Director
+// Type predicate
 // ===============================
-function isDirector(employee: Director | Teacher): employee is Director {
+export function isDirector(employee: Director | Teacher): employee is Director {
   return (employee as Director).workDirectorTasks !== undefined;
 }
 
 // ===============================
 // Function: executeWork
-// Calls the appropriate method based on employee type
+// Calls correct method and returns result
 // ===============================
-function executeWork(employee: Director | Teacher): void {
+export function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
-    console.log(employee.workDirectorTasks());
-  } else {
-    console.log(employee.workTeacherTasks());
+    return employee.workDirectorTasks();
   }
+  return employee.workTeacherTasks();
 }
 
 // ===============================
-// Example usage (for testing)
+// Example usage (for local testing)
 // ===============================
-executeWork(createEmployee(200)); // Output: Getting to work
-executeWork(createEmployee(1000)); // Output: Getting to director tasks
+// console.log(executeWork(createEmployee(200)));   // Getting to work
+// console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
