@@ -13,25 +13,28 @@ export const cTeacher: Subjects.Teacher = {
   lastName: 'Doe',
   experienceTeachingC: 10,
 };
-
+["cTeacher: Teacher"]
 // C++
 console.log('C++');
 cpp.setTeacher(cTeacher);
 console.log(cpp.getRequirements());
 console.log(cpp.getAvailableTeacher());
-
+["const java = new Java()"]
 // Java
 console.log('Java');
 java.setTeacher(cTeacher);
 console.log(java.getRequirements());
 console.log(java.getAvailableTeacher());
-
+["const java = new Java()"]
 // React
 console.log('React');
 react.setTeacher(cTeacher);
 console.log(react.getRequirements());
 console.log(react.getAvailableTeacher());
 // 
+
+["const react = new React()"]
+
 
 // ## Expected Output
 
