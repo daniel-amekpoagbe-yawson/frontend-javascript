@@ -1,36 +1,19 @@
 interface Teacher {
-  firstName: string;
-  lastName: string;
+  readonly firstName: string; // only modifiable at initialization
+  readonly lastName: string; // only modifiable at initialization
   fullTimeEmployee: boolean;
-  location: string;
   yearsOfExperience?: number;
-  [key: string]: any;
+  location: string;
+  [key: string]: any; // allow additional arbitrary attributes
 }
 
-const teacher1: Teacher = {
-  firstName: "Jane",
-  lastName: "Smith",
-  fullTimeEmployee: true,
-  location: "New York",
-  yearsOfExperience: 5,
-};
-
-console.log(teacher1);
-
+// Example usage:
 const teacher3: Teacher = {
   firstName: "John",
-  fullTimeEmployee: false,
   lastName: "Doe",
+  fullTimeEmployee: false,
   location: "London",
-  contract: false,
+  contract: false, // extra attribute allowed
 };
 
 console.log(teacher3);
-
-// should print
-// Object
-// contract: false
-// firstName: "John"
-// fullTimeEmployee: false
-// lastName: "Doe"
-// location: "London"
